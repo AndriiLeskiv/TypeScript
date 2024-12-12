@@ -149,7 +149,7 @@ let oldProducts: newProduct[] = [
     new newProduct(4, 'water', 78),
 ];
 
-function getProducts(arrayProducts: newProduct[]):void{
+function getProductsClass(arrayProducts: newProduct[]):void{
     for (const arrayProduct of arrayProducts) {
         document.write(`
             <div>
@@ -159,7 +159,7 @@ function getProducts(arrayProducts: newProduct[]):void{
         `);
     }
 }
-getProducts(oldProducts);
+getProductsClass(oldProducts);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -238,7 +238,7 @@ class Deck {
             && card.value !== '8' && card.value !== '9');
     }
 }
-const newCardSuits = ['heart', 'diamond', 'spade', 'club'];
+const newCardSuits = ['heart', 'diamond', 'spade', 'clubs'];
 const newValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
 
 const deck = new Deck(newCardSuits, newValues);
@@ -252,7 +252,7 @@ console.log(deck.findHigherClubs());
 
 //Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
 class CardsObject {
-    constructor(public newSpades: string[], public newDiamonds: string[], public newHearts: string[], public newClubs: string[]) {}
+    constructor(public spades: string[], public diamonds: string[], public hearts: string[], public clubs: string[]) {}
 }
 let NewCards: Card[] = [
     new Card('spade', 'ace'),
@@ -262,7 +262,7 @@ let NewCards: Card[] = [
     new Card('spade', 'king')
 ];
 
-let newCardsObject: CardsObject = NewCards.reduce((accum, card) => {
+let CardsObjectClass: CardsObject = NewCards.reduce((accum, card) => {
     switch (card.cardSuit) {
         case 'spade':
             accum.spades.push(card.value);
@@ -284,9 +284,7 @@ let newCardsObject: CardsObject = NewCards.reduce((accum, card) => {
     hearts: [],
     clubs: []
 });
-
-console.log(newCardsObject);
-
+console.log(CardsObjectClass);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -304,7 +302,11 @@ let newCoursesArray: CoursesArray[] = [
 ];
 
 // --написати пошук всіх об'єктів, в яких в modules є sass
-console.log(newCoursesArray.filter((modules:CoursesArray) => modules.modules.includes('sass')));
+console.log(newCoursesArray.filter((modules: CoursesArray) =>
+    modules.modules.some(module => module === 'sass')
+));
 // --написати пошук всіх об'єктів, в яких в modules є docker
-console.log(newCoursesArray.filter((modules:CoursesArray) => modules.modules.includes('docker')));
+console.log(newCoursesArray.filter((modules: CoursesArray) =>
+    modules.modules.some(module => module === 'docker')
+));
 ////////////////////////////////////////////////////////////////////////////////////////////////////

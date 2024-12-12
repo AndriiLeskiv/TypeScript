@@ -1,40 +1,40 @@
 //- створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
-function areaOfRectangle(a:number, b:number):number{
+function areaOfRectangleTS(a:number, b:number):number{
     return a * b;
 }
-console.log(areaOfRectangle(4,5));
+console.log(areaOfRectangleTS(4,5));
 
 //- створити функцію яка обчислює та повертає площу кола з радіусом r
-function areaOfCircle(r:number):number{
+function areaOfCircleTS(r:number):number{
     return 3.14 * (r * r);
 }
-console.log(areaOfCircle(5));
+console.log(areaOfCircleTS(5));
 
 //- створити функцію яка обчислює та повертає площу циліндру висотою h, та радіусом r
-function areaOfCylinder(H:number, R:number):number{
+function areaOfCylinderTs(H:number, R:number):number{
     return 2 * 3.14 * R*(H + R);
 }
-console.log(areaOfCylinder(5, 7));
+console.log(areaOfCylinderTs(5, 7));
 
 //- створити функцію яка приймає масив та виводить кожен його елемент
-function printerArray(array:(number | string)[]):void{
+function printerArrayTs(array:(number | string)[]):void{
     for (const arrayElement of array) {
         console.log(arrayElement);
     }
 }
-printerArray(['test', 4, 12, 'tesdfdf', 14]);
+printerArrayTs(['test', 4, 12, 'tesdfdf', 14]);
 
 //- створити функцію яка створює параграф з текстом та виводить його через document.write. Текст задати через аргумент
-function writeParagraph(textParagraph:string):void {
+function writeParagraphTs(textParagraph:string):void {
     document.write(
         `<p>${textParagraph}</p>`
     )
 }
-writeParagraph('Створити функцію яка створює параграф з текстом та виводить його через document.write. Текст задати через аргумент');
+writeParagraphTs('Створити функцію яка створює параграф з текстом та виводить його через document.write. Текст задати через аргумент');
 
 //- створити функцію яка створює ul з трьома елементами li та виводить його через document.write.
 // Текст li задати через аргумент всім однаковий
-function writeUl(textUl:string):void {
+function writeUlTs(textUl:string):void {
     document.write(
         `<ul>
             <li>${textUl}</li>
@@ -43,11 +43,11 @@ function writeUl(textUl:string):void {
         </ul>`
     )
 }
-writeUl('Текст li');
+writeUlTs('Текст li');
 
 // - створити функцію яка створює ul з елементами li. Текст li задати через аргумент всім однаковий.
 // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл) та виводить його через document.write
-function createdUl(textUl:string, countLi:number):void {
+function createdUlTs(textUl:string, countLi:number):void {
     let ulContent = `<ul>`;
     for (let i = 0; i < countLi; i++) {
         ulContent += `<li>${textUl}</li>`;
@@ -55,11 +55,11 @@ function createdUl(textUl:string, countLi:number):void {
     ulContent += `</ul>`;
     document.write(ulContent);
 }
-createdUl('Текст li', 10);
+createdUlTs('Текст li', 10);
 
 //- створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 // (ul li) та виводить його через document.write
-function getArray(array:(string|boolean|number)[]):void {
+function getArrayTs(array:(string|boolean|number)[]):void {
     let ulContent = `<ul>`;
     for (const arrayElement of array) {
         ulContent += `<li>${arrayElement}</li>`;
@@ -67,55 +67,43 @@ function getArray(array:(string|boolean|number)[]):void {
     ulContent += `</ul>`;
     document.write(ulContent);
 }
-getArray(['test', 4, 12, 'tesdfdf', 14, true, 1242, 'master', false]);
+getArrayTs(['test', 4, 12, 'tesdfdf', 14, true, 1242, 'master', false]);
 
 //- створити функцію яка приймає масив об'єктів з наступними полями id, name, age та виводить їх в документ.
 // Для кожного об'єкту окремий блок.
-interface Product {
+interface ProductInt {
     id: number;
     title: string;
     age: number;
 }
-let products: Product[] = [
-    {
-        id: 1,
-        title: 'milk',
-        age: 20
-    },
-    {
-        id: 2,
-        title: 'meat',
-        age: 22
-    },
-    {
-        id: 3,
-        title: 'banana',
-        age: 45
-    },
-    {
-        id: 4,
-        title: 'water',
-        age: 78
-    },
+let productsIn: ProductInt[] = [
+    { id: 1, title: 'milk', age: 20 },
+    { id: 2, title: 'meat', age: 22 },
+    { id: 3, title: 'banana', age: 45 },
+    { id: 4, title: 'water', age: 78 },
 ];
 
-function getProducts(arrayProducts: Product[]):void{
-    for (const arrayProduct of arrayProducts) {
-        document.write(`
-            <div>
-                <h2>${arrayProduct.id} -  ${arrayProduct.title}</h2>
-                <p>Product age - ${arrayProduct.age}</p>
-            </div>
-        `);
+function displayProducts(productsIn: ProductInt[]): void {
+    const container = document.getElementById('product-container');
+
+    if (container) {
+        productsIn.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.innerHTML = `
+                <h2>${product.id} - ${product.title}</h2>
+                <p>Product age - ${product.age}</p>
+            `;
+            container.appendChild(productDiv);
+        });
     }
 }
-getProducts(products);
+displayProducts(productsIn);
 
 // - створити функцію яка повертає найменьше число з масиву
 // function getMinNumber(arrayNumber){
 //     return Math.min(...arrayNumber);
 // }
-function getMinNumber(arrayNumber: number[]):number{
+function getMinNumberTs(arrayNumber: number[]):number{
     let min:number = arrayNumber[0];
     for (let i:number = 1; i < arrayNumber.length; i++) {
         if (arrayNumber[i] < min) {
@@ -124,29 +112,29 @@ function getMinNumber(arrayNumber: number[]):number{
     }
     return min;
 }
-console.log(getMinNumber([5, 2, 9, 1, -3, 10]));
+console.log(getMinNumberTs([5, 2, 9, 1, -3, 10]));
 
 // - створити функцію sum(arr) яка приймає масив чисел, сумує значення елементів масиву та повертає його.
 // Приклад sum([1,2,10]) //->13
-function sum(arr:number[]):number{
+function sumTs(arr:number[]):number{
     let sumArr:number = 0;
     for (const arrElement of arr) {
         sumArr += arrElement;
     }
     return sumArr;
 }
-console.log(sum([1,2,10]));
+console.log(sumTs([1,2,10]));
 
 // - створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
-function swap(arr:number[], index1:number, index2:number):number[]{
+function swapTs(arr:number[], index1:number, index2:number):number[]{
     let temp:number = arr[index1];
     arr[index1] = arr[index2];
     arr[index2] = temp;
 
     return arr;
 }
-console.log(swap([11,22,33,44],0,1));
+console.log(swapTs([11,22,33,44],0,1));
 
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
@@ -154,7 +142,7 @@ interface Currency{
     currency:string,
     value:number
 }
-function exchange(sumUAH:number, currencyValues:Currency[], exchangeCurrency:string):number{
+function exchangeTs(sumUAH:number, currencyValues:Currency[], exchangeCurrency:string):number{
     let changeCurrency: Currency | undefined;
     for (const itemValues of currencyValues) {
         if (itemValues.currency === exchangeCurrency){
@@ -168,4 +156,4 @@ function exchange(sumUAH:number, currencyValues:Currency[], exchangeCurrency:str
     }
 }
 
-console.log(exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD'));
+console.log(exchangeTs(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD'));

@@ -74,13 +74,13 @@ let book_HP: bigBook = {
 
 //- Створити масив з 10 об'єктами які описують сутніть "користувач". Поля: name, username, password.
 // Вивести в консоль пароль кожного користувача
-interface User {
+interface UserArray {
     name: string;
     username: string;
     password: string;
 }
 
-let usersArray: User[] = [
+let userArray: UserArray[] = [
     {
         name: 'Andrii',
         username: 'kiko',
@@ -132,16 +132,16 @@ let usersArray: User[] = [
         password: 'qwer_78$'
     }
 ]
-console.log(usersArray[0]["password"]);
-console.log(usersArray[1]["password"]);
-console.log(usersArray[2]["password"]);
-console.log(usersArray[3]["password"]);
-console.log(usersArray[4]["password"]);
-console.log(usersArray[5]["password"]);
-console.log(usersArray[6]["password"]);
-console.log(usersArray[7]["password"]);
-console.log(usersArray[8]["password"]);
-console.log(usersArray[9]["password"]);
+console.log(userArray[0]["password"]);
+console.log(userArray[1]["password"]);
+console.log(userArray[2]["password"]);
+console.log(userArray[3]["password"]);
+console.log(userArray[4]["password"]);
+console.log(userArray[5]["password"]);
+console.log(userArray[6]["password"]);
+console.log(userArray[7]["password"]);
+console.log(userArray[8]["password"]);
+console.log(userArray[9]["password"]);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Логічні розгалуження:
@@ -214,7 +214,7 @@ switch (week) {
 //- Користувач вводить або має два числа.
 // Потрібно знайти та вивести максимальне число з тих двох.
 // Також потрібно врахувати коли введені рівні числа.
-let a: number = +prompt("Введіть перше число для порівняння");
+let aNumber: number = +prompt("Введіть перше число для порівняння");
 let b: number = +prompt("Введіть друге число для порівняння");
 if(a > b){
     console.log(a);

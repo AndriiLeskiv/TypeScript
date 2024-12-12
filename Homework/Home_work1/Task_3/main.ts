@@ -1,5 +1,5 @@
 //За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
-let a: number = 100; let b: string = '100'; let c: boolean = true;
-console.log(typeof a, a);
-console.log(typeof b, b);
-console.log(typeof c, c);
+let aFirst: number = 100; let bSecond: string = '100'; let cThird: boolean = true;
+console.log(typeof aFirst, aFirst);
+console.log(typeof bSecond, bSecond);
+console.log(typeof cThird, cThird);

@@ -78,12 +78,12 @@ for (let product of products) {
 }
 
 //є масив
-interface User {
+interface User_Interface {
     name: string;
     age: number;
     status: boolean;
 }
-let users: User[] = [
+let users: User_Interface[] = [
     {name: 'vasya', age: 31, status: false},
     {name: 'petya', age: 30, status: true},
     {name: 'kolya', age: 29, status: true},

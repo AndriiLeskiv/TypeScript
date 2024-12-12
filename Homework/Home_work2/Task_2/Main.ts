@@ -67,12 +67,12 @@ getArray(['test', 4, 12, 'tesdfdf', 14, true, 1242, 'master', false]);
 
 //- створити функцію яка приймає масив об'єктів з наступними полями id, name, age та виводить їх в документ.
 // Для кожного об'єкту окремий блок.
-interface Product {
+interface interfaceProduct {
     id: number;
     title: string;
     age: number;
 }
-let products: Product[] = [
+let productsInterface: interfaceProduct[] = [
     {
         id: 1,
         title: 'milk',
@@ -95,7 +95,7 @@ let products: Product[] = [
     },
 ];
 
-let getProducts = (arrayProducts: Product[]):void =>{
+let getProducts = (arrayProducts: interfaceProduct[]):void =>{
     for (const arrayProduct of arrayProducts) {
         document.write(`
             <div>
@@ -105,7 +105,7 @@ let getProducts = (arrayProducts: Product[]):void =>{
         `);
     }
 }
-getProducts(products);
+getProducts(productsInterface);
 
 // - створити функцію яка повертає найменьше число з масиву
 // function getMinNumber(arrayNumber){

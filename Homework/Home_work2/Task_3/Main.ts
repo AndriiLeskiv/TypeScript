@@ -127,33 +127,33 @@ console.log(cards.filter((oneCard:Card) => oneCard.cardSuit === 'clubs' && (oneC
     && oneCard.value !== '8' && oneCard.value !== '9')));
 
 //Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
-interface CardsObject {
-    spades: Card[];
-    diamonds: Card[];
-    hearts: Card[];
-    clubs: Card[];
+interface CardsObjectIn {
+    spadesI: Card[];
+    diamondsI: Card[];
+    heartsI: Card[];
+    clubsI: Card[];
 }
-let cardsObject:CardsObject = cards.reduce((accum, card:Card)=> {
+let cardsObject:CardsObjectIn = cards.reduce((accum, card:Card)=> {
     switch (card.cardSuit){
         case 'spade':
-            accum.spades.push(card);
+            accum.spadesI.push(card);
             break;
         case 'diamond':
-            accum.diamonds.push(card);
+            accum.diamondsI.push(card);
             break;
         case 'heart':
-            accum.hearts.push(card);
+            accum.heartsI.push(card);
             break;
         case 'clubs':
-            accum.clubs.push(card);
+            accum.clubsI.push(card);
             break;
     }
     return accum;
 },{
-    spades:[],
-    diamonds:[],
-    hearts:[],
-    clubs:[]
+    spadesI:[],
+    diamondsI:[],
+    heartsI:[],
+    clubsI:[]
 })
 console.log(cardsObject);
 
@@ -234,6 +234,11 @@ let coursesArray:CoursesArray[] = [
     }
 ];
 // --написати пошук всіх об'єктів, в яких в modules є sass
-console.log(coursesArray.filter((modules:CoursesArray) => modules.modules.includes('sass')));
+console.log(newCoursesArray.filter((modules: CoursesArray) =>
+    modules.modules.some(module => module === 'sass')
+));
 // --написати пошук всіх об'єктів, в яких в modules є docker
-console.log(coursesArray.filter((modules:CoursesArray) => modules.modules.includes('docker')));
+console.log(newCoursesArray.filter((modules: CoursesArray) =>
+    modules.modules.some(module => module === 'docker')
+));
+////////////////////////////////////////////////////////////////////////////////////////////////////
