@@ -115,7 +115,7 @@ for (const cSuit of cardSuits) {
 }
 console.log(cards);
 //  - знайти піковий туз
-console.log(cards.find((oneCard:Card) => oneCard.value === 'ace' && oneCard.cardSuit === 'spade'));
+console.log(cards.filter((oneCard:Card) => oneCard.value === 'ace' && oneCard.cardSuit === 'spade'));
 //  - всі шістки
 console.log(cards.filter((oneCard:Card) => oneCard.value === '6'));
 //  - всі червоні карти
